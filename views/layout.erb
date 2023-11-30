@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Todo App</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Sans">
+    <link rel="stylesheet" href="/stylesheets/whitespace-reset.css">
+    <link rel="stylesheet" href="/stylesheets/application.css">
+  </head>
+  <body>
+    <header>
+      <h1>Todo Tracker</h1>
+    </header>
+    <% if session[:error] %>
+      <div class="flash error">
+      <P><%= session.delete(:error) %></P>
+      </div>
+    <% end %>
+
+    <% if session[:success] %>
+      <div class="flash success">
+        <P><%= session.delete(:success) %></P>
+      </div>
+    <% end %>
+
+    <main>
+      <%= yield %>
+    </main>
+  </body>
+</html>
